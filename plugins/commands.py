@@ -26,7 +26,7 @@ async def start(client, message):
                 InlineKeyboardButton('⚡ UᎮDΛTΞS ⚡', url='https://t.me/LordshipMovies')
             ],
             [
-                InlineKeyboardButton('⚡ ADULT BOT ⚡', url='https://t.me/Adultship'),
+                InlineKeyboardButton('🔞 ADULT BOT 🔞', url='https://t.me/Adultship'),
             ],
             [
                 InlineKeyboardButton(text=DOWNLOAD_TEXT_NAME,url=DOWNLOAD_TEXT_URL)
