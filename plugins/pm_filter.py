@@ -51,7 +51,7 @@ async def fil_mod(client, message):
       else:
           await m.edit("USE :- /autofilter on 𝙾𝚁 /autofilter off")
 
-@Client.on_message((filters.group | filters.private) & filters.text & filters.incoming)
+@Client.on_message(filters.text & filters.incoming)
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
@@ -85,7 +85,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⚡{get_size(file.file_size)}▪️{file.file_name}", 
+                    text=f"⚡{get_size(file.file_size)}▪️{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -94,10 +94,11 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⚡{get_size(file.file_size)}▪️{file.file_name}", 
+                    text=f"▪️{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
                 InlineKeyboardButton(
-                    text=f"⚡{get_size(file.file_size)}▪️{file.file_name}", 
+                    text=f"⚡{get_size(file.file_name}", 
+                    callback_data=f'files#{file.file_id}',
                 ),
             ]
             for file in files
@@ -662,7 +663,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⚡{get_size(file.file_size)}▪️{file.file_name}", 
+                    text=f"⚡{get_size(file.file_size)}▪️{file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -671,10 +672,12 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⚡{get_size(file.file_size)}▪️{file.file_name}", 
+                    text=f"▪️{file.file_name}", 
+                    callback_data=f'{pre}#{file.file_id}'
                 ),
                 InlineKeyboardButton(
-                    text=f"⚡{get_size(file.file_size)}▪️{file.file_name}", 
+                    text=f"⚡{get_size(file.file_size)}", 
+                    callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
